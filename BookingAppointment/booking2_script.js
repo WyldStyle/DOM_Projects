@@ -22,7 +22,7 @@ function onInputFieldChange(event) {
 }
 function form_submit_handler(event) {
   event.preventDefault();
-  localStorage.setItem('userDetail', JSON.stringify(form_data))
+  localStorage.setItem(form_data.username, JSON.stringify(form_data))
 }
 
 function setInputFieldValue(key) {
