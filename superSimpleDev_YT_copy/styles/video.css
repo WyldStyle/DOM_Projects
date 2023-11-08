@@ -1,0 +1,93 @@
+
+    .thumbnail-row {
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .thumbnail {
+      width: 100%;
+      /* height: 185px; */
+      object-fit: cover;
+      /* height: 185px; */
+      /* height: 300px;
+      setting both width & height will stretch the image */
+      /* object-fit: cover; */
+      /* object-fit: contain;
+      border: 2px;
+      border-style: solid;
+      border-color: red;
+      object-position: bottom; */
+      /* border-radius: 50%; */
+      /* display: block; */
+      /* we can use display to display beside or not */
+
+    }
+
+    .video-time{
+      background-color: black;
+      color: white;
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px;
+    }
+    .video-grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      column-gap: 15px;
+    }
+
+    /* .video-preview {
+      width: 300px;
+      display: inline-block;
+      vertical-align: top; */
+      /* vertical-align: bottom; */
+      /* margin-right: 15px; */
+    /* } */
+
+
+
+    .video-intro {
+      display: inline-block;
+      width: 245px;
+    }
+
+    .video-title {
+      margin-top: 0px;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 20px;
+      /* to change space between line */
+      margin-bottom: 12px;
+    }
+
+    .video-info-grid {
+      display: grid;
+      grid-template-columns: 50px 1fr;
+      margin-bottom: 20px;
+    }
+
+    .video-author,
+    .video-stats {
+      font-size: 12px;
+      color: rgb(96, 96, 96)
+    }
+
+    .video-author {
+      margin-bottom: 4px;
+    }
+
+    .channel-image {
+      display: inline-block;
+      width: 40px;
+      vertical-align: top;
+      margin-right: 10px;
+    }
+
+    .profile-pic {
+      width: 100%;
+      border-radius: 50%;
+    }

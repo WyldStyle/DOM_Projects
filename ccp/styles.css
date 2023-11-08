@@ -1,0 +1,70 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: rgb(47, 2, 58);
+}
+
+#textArea {
+  border: 2px solid pink;
+  height: calc(50vh - 4px);
+  position: relative;
+  /* viewport height */
+}
+
+#textMe{
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: linear-gradient(180deg, red, yellow);
+}
+
+#fileArea {
+  border: 2px solid yellow;
+  height: calc(50vh - 4px);
+  position: relative;
+  color: white;
+}
+
+.buttonContainer{
+  border: 1px solid red;
+  text-align: center;
+  padding: 4px;
+}
+.submitBtn{
+  padding: 10px;
+  width: 100%;
+  background-color: rgb(243, 163, 177);
+  font-size: 30px;
+  font-weight: 900;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.imgContainer{
+  border: 2px solid white;
+  width: 90%;
+  height: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+#picMe{
+  width: 100%;
+  max-height: 100%;
+}
+
+@media screen and (min-width: 480px){
+#containerForTextnFileArea{
+  display: flex;
+}
+#textArea{
+width: calc(50vw - 4px);;
+}
+#fileArea{
+  width: calc(50vw - 4px);
+}
+}

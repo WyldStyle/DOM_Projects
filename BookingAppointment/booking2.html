@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Yr Slot</title>
+  <link rel="stylesheet" href="booking2Css.css">
+  <script src="booking2_script.js"></script>
+</head>
+
+<body>
+  <div id="div1">
+    <div class="div2">
+      <h1 class="heading1">Book Your Appointment ⏲
+      </h1>
+      <hr>
+    </div>
+    <div class="div3">
+      <form onsubmit="form_submit_handler(event)" id="form1">
+        <label for="username">Name</label><br>
+        <input type="text" id="ip1username" name="username" oninput="onInputFieldChange(event)"><br><br>
+        <label for="mobNo">Mobile Number</label><br>
+        <input type="text" id="mobNo" name="mobNo" oninput="onInputFieldChange(event)"><br><br>
+        <label for="profession">Profession</label><br>
+        <input type="text" id="profession" name="profession" oninput="onInputFieldChange(event)"><br><br>
+        <label for="purpose">Purpose</label><br>
+        <input type="text" id="purpose" name="purpose" oninput="onInputFieldChange(event)"><br><br>
+        <label for="slot">Choose a slot</label><br>
+        <select name="slot" id="slot">
+          <option value="m1">7:00 am</option>
+          <option value="m2">10:00 am</option>
+          <option value="eve1">13:00 pm</option>
+          <option value="eve2">16:00 pm</option>
+          <option value="eve3">19:00 pm</option>
+        </select><br><br>
+        <button type="submit">Book Appointment</button>
+      </form>
+    </div>
+  </div>
+  <button onclick="onInputFieldChange()">testButton</button>
+</body>
+
+</html>
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>onchange Event Example</title>
+</head>
+<body>
+
+<form>
+  <label for="myInput">Enter something:</label>
+</form>
+  <input type="text" id="myInput" onchange="myFunction()">
+
+<p id="output">Output:</p>
+
+<script>
+function myFunction() {
+  // Get the input element
+  var input = document.getElementById("myInput");
+  
+  // Get the value from the input field
+  var inputValue = input.value;
+  
+  // Display the value in a paragraph
+  var output = document.getElementById("output");
+  output.innerHTML = "Output: " + inputValue;
+}
+</script>
+
+</body>
+</html> -->

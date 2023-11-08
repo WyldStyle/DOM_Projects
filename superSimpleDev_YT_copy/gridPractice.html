@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>gridPractice</title>
+</head>
+<body>
+  <div style="display: grid; 
+  grid-template-columns: 100px 100px;">
+    <div style="background-color: lightblue;">div 1</div>
+    <div style="background-color: lightpink;">div 2
+    <p>see how they align</p></div>
+  </div>
+
+  <div style="display: grid; 
+  grid-template-columns: 100px 100px 200px;
+  margin-top: 10px;">
+    <div style="background-color: lightblue;">div 1</div>
+    <div style="background-color: lightpink;">div 2
+    <p>see how they align</p></div>
+    <div style="background-color: aqua;">div 3</div>
+    <div style="background-color: lightcoral;">div4</div>
+  </div>
+
+  <div style="display: grid; 
+  grid-template-columns: 100px 100px 200px 1fr;
+  margin-top: 10px;">
+    <div style="background-color: lightblue;">div 1</div>
+    <div style="background-color: lightpink;">div 2
+    <p>see how they align</p></div>
+    <div style="background-color: aqua;">div 3</div>
+    <div style="background-color: lightcoral;">div4</div>
+  </div>
+
+  <div style="display: grid; 
+  grid-template-columns: 100px 100px 1fr 2fr;
+  margin-top: 10px;">
+    <div style="background-color: lightblue;">div 1</div>
+    <div style="background-color: lightpink;">div 2
+    <p>see how they align</p></div>
+    <div style="background-color: aqua;">div 3</div>
+    <div style="background-color: lightcoral;">div4</div>
+  </div>
+
+  <div style="display: grid; 
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 10px;
+  height: 800px;
+  column-gap: 20px;
+  row-gap: 40px;
+  margin-bottom: 40px;">
+    <div style="background-color: lightblue;">div 1</div>
+    <div style="background-color: lightpink;">div 2
+    <p>see how they align</p></div>
+    <div style="background-color: aqua;">div 3</div>
+    <div style="background-color: lightpink;">div 2
+    <p>see how they align</p></div>
+    <div style="background-color: aqua;">div 3</div>
+    <div style="background-color: lightblue;">div 1</div>
+  </div>
+</body>
+</html>

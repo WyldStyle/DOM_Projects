@@ -1,0 +1,18 @@
+body{
+  margin: 0;
+}
+.container1{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-image: linear-gradient(to right, rgb(0, 0, 0),rgb(0, 0, 20));
+  height: 2000px;
+}
+.textAr{
+  border: 1px solid rgb(13, 195, 241);
+  margin-right: 5px;
+  box-shadow: ;
+}
+.picAr{
+  border: 1px solid pink;
+  margin-left: 5px;
+}

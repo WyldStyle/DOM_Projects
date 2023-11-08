@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .subscribe-button {
+      background-color: rgb(200, 0, 0);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      /* height: 36px;
+      width: 105px; */
+      border-radius: 4px;
+      padding: 10px;
+      cursor: pointer;
+      margin-right: 8px;
+      transition: opacity 0.15s;
+      vertical-align: top;
+    }
+    .subscribe-button:hover{
+      /* background-color: green; */
+      opacity: 0.8;
+    }
+    .subscribe-button:active{
+      /* background-color: blue; */
+      opacity: 0.4;
+    }
+
+    .join-button {
+      background-color: white;
+      border-color: rgb(0, 110, 255);
+      border-style: solid;
+      border-radius: 4px;
+      color: rgb(0, 110, 255);
+      /* height: 36px;
+      width: 62px; 
+      dont use this because changing
+      textContent will cause it to overflow*/
+      padding: 9px;
+      cursor: pointer;
+      margin-right: 8px;
+      transition: background-color 0.5s, color 0.5s;
+      /* always put transition in main class and not .hover or psudo class
+      because in main class it'll handle both mouseover and mouseout */
+      vertical-align: top;
+    }
+    .join-button:hover{
+      background-color: rgb(0,110,255);
+      color: white;
+      font-weight: bold28k;
+    }
+    .tweet-button{
+      background-color: rgb(0, 110, 255);
+      border-radius: 30px;
+      border: solid;
+      /* width: 74px;
+      height: 40px; */
+      color: white;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-bottom: 10px;
+      padding-top: 8px;
+      font-weight: bold;
+      font-size: 15px;
+      box-shadow: 10px;
+      cursor: pointer;
+      vertical-align: top;
+    }
+    .tweet-button:hover{
+      background-color: rgb(0, 110, 255);
+      border-radius: 30px;
+      border: solid;
+      width: 74px;
+      height: 40px;
+      color: white;
+      font-weight: bold;
+      font-size: 15px;
+      box-shadow: 10px;
+      cursor: pointer;
+      box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
+      transition: box-shadow 0.15s;
+      vertical-align: top;
+    }
+  </style>
+</head>
+
+<body>
+  <button class="subscribe-button">Subscribe</button>
+  <button class="join-button">Join</button>
+  <button class="tweet-button">Tweet</button>
+
+
+</body>
+
+</html>
