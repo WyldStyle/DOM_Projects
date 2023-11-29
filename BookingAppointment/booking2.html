@@ -11,34 +11,44 @@
 
 <body>
   <div id="div1">
+
     <div class="div2">
       <h1 class="heading1">Book Your Appointment ⏲
       </h1>
       <hr>
     </div>
-    <div class="div3">
-      <form onsubmit="form_submit_handler(event)" id="form1">
-        <label for="username">Name</label><br>
-        <input type="text" id="ip1username" name="username" oninput="onInputFieldChange(event)"><br><br>
-        <label for="mobNo">Mobile Number</label><br>
-        <input type="text" id="mobNo" name="mobNo" oninput="onInputFieldChange(event)"><br><br>
-        <label for="profession">Profession</label><br>
-        <input type="text" id="profession" name="profession" oninput="onInputFieldChange(event)"><br><br>
-        <label for="purpose">Purpose</label><br>
-        <input type="text" id="purpose" name="purpose" oninput="onInputFieldChange(event)"><br><br>
-        <label for="slot">Choose a slot</label><br>
-        <select name="slot" id="slot">
-          <option value="m1">7:00 am</option>
-          <option value="m2">10:00 am</option>
-          <option value="eve1">13:00 pm</option>
-          <option value="eve2">16:00 pm</option>
-          <option value="eve3">19:00 pm</option>
-        </select><br><br>
-        <button type="submit">Book Appointment</button>
-      </form>
+    <div id="div5">
+      <div class="div3">
+        <form onsubmit="form_submit_handler(event)" id="form1">
+          <label for="username">Name</label><br>
+          <input type="text" id="ip1username" name="username" oninput="onInputFieldChange(event)"><br><br>
+          <label for="mobNo">Mobile Number</label><br>
+          <input type="text" id="mobNo" name="mobNo" oninput="onInputFieldChange(event)"><br><br>
+          <label for="profession">Profession</label><br>
+          <input type="text" id="profession" name="profession" oninput="onInputFieldChange(event)"><br><br>
+          <label for="purpose">Purpose</label><br>
+          <input type="text" id="purpose" name="purpose" oninput="onInputFieldChange(event)"><br><br>
+          <label for="slot">Choose a slot</label><br>
+          <input type="time" name="slot" id="slot" oninput="onInputFieldChange(event)">
+          <!-- <select name="slot" id="slot" oninput="onInputFieldChange(event)">
+            <option value="m1">7:00 am</option>
+            <option value="m2" selected>10:00 am</option>
+            <option value="eve1">13:00 pm</option>
+            <option value="eve2">16:00 pm</option>
+            <option value="eve3">19:00 pm</option>
+          </select> -->
+          <input type="date" id="date" value = '' name="date" oninput="onInputFieldChange(event)"><br><br>
+          <button type="submit">Book Appointment</button>
+        </form>
+      </div>
+
+      <div id="div4" >
+        <button onclick="displayAppointments()" >Toggle Appointments Display</button>
+      </div>
+      <div></div>
     </div>
+
   </div>
-  <button onclick="onInputFieldChange()">testButton</button>
 </body>
 
 </html>

@@ -1,0 +1,47 @@
+.box{
+  background-color: lightblue;
+}
+
+/* 
+
+var allExpens = [];
+var editingExpsId = null;
+
+addBtn.addEventListener("click", (e) => {
+  const category = document.getElementById("category").value;
+
+  const obj = {
+    cat: category,
+    title: title,
+    amount: amount,
+    id: new Date().getTime()
+  }
+
+  // save to LS
+  allExpens.push(obj)
+  localStorage.setItem('key', JSON.stringify(allExpens))
+
+  // add to DOM
+
+})
+editBtn.addEventListener("click", (e) => {
+  // populate existing expense fields to inputs
+  editingExpsId = currentItem.id
+})
+
+
+editBtn.addEventListener("click", (e) => {
+  const category = document.getElementById("category").value;
+
+  const obj = {
+    cat: category,
+    title: title,
+    amount: amount,
+    id: editingExpsId
+  }
+
+  // save to LS
+  const idx = allExpens.findIndex((item) => item.id === editingExpsId);
+  allExpens[idx] = obj
+  localStorage.setItem('key', JSON.stringify(allExpens
+ */
