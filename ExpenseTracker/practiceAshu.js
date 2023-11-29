@@ -154,6 +154,7 @@ let formState = {
 }
 
 let arrExpense = [];
+let editMode = false, updateIdx = null;
 
 document.addEventListener('DOMContentLoaded', () => {
   let form = document.querySelector('#form-add-expense');
@@ -171,7 +172,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    addExpense(formState, arrExpense);
+    if (!editMode) addExpense(arrExpense);
+    else {
+      updateExpense(updateIdx);
+      editMode = false;
+      updateIdx = null;
+    }
     renderTableData(arrExpense);
     formState = {
       category: "",
@@ -221,8 +227,11 @@ function objectToTableRow(sNo, expense) {
 
 
   editButton.addEventListener('click', () => {
+    editMode = true;
     editRow(sNo - 1);
+    updateIdx = sNo - 1;
     syncFormUIWithState();
+
   });
   delButton.addEventListener('click', () => {
     delRow(sNo - 1);
@@ -231,8 +240,8 @@ function objectToTableRow(sNo, expense) {
   return new_row;
 }
 
-function addExpense(formData, arrExpense) {
-  arrExpense.push(formData);
+function addExpense(arrExpense) {
+  arrExpense.push(formState);
 }
 
 function handleInputChange(e, form) {
@@ -251,11 +260,15 @@ function delRow(idx) {
   arrExpense.splice(idx, 1);
 }
 function editRow(idx) {
-  formState = {...arrExpense[idx]};
+  formState = { ...arrExpense[idx] };
 }
 
 function syncFormUIWithState() {
   for (let key of Object.keys(formState)) {
     setInputFieldValue(key);
   }
+}
+
+function updateExpense(idx) {
+  arrExpense[idx] = formState;
 }
