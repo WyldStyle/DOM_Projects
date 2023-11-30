@@ -153,17 +153,44 @@ let formState = {
   amount: ""
 }
 
-let arrExpense = [];
+// let user = localStorage.getItem('user');
+// if (user === null) {
+//   user = {
+//     'income': '',
+//     'expenses': '',
+//     'balance': '',
+//     'expenseHistory': []
+//   }
+// }
+// else user = JSON.parse(user);
+  let user = {
+    'income': '',
+    'expenses': '',
+    'balance': '',
+    'expenseHistory': []
+  }
+  if(localStorage.getItem('user')) user = JSON.parse(localStorage.getItem('user'))
+
+console.log(user);
+// let arrExpense = [];
+let arrExpense = user.expenseHistory;
+console.log(arrExpense, 'hererere');
 let editMode = false, updateIdx = null;
 
 document.addEventListener('DOMContentLoaded', () => {
+  setBalance()
   let form = document.querySelector('#form-add-expense');
 
   for (const key in formState) {
     setInputFieldValue(key);
   }
 
+  let btn_add_income = document.querySelector('#btn-income');
 
+  btn_add_income.addEventListener('click', (e) => {
+    // e.target.preventDefault()
+    setBalance();
+  })
 
   // form.addEventListener('input',(e)=>{
   //   handleInputChange(e, form, formState);
@@ -177,6 +204,8 @@ document.addEventListener('DOMContentLoaded', () => {
       updateExpense(updateIdx);
       editMode = false;
       updateIdx = null;
+      document.querySelector('#add').textContent = "Add+"
+      setBalance()
     }
     renderTableData(arrExpense);
     formState = {
@@ -228,20 +257,22 @@ function objectToTableRow(sNo, expense) {
 
   editButton.addEventListener('click', () => {
     editMode = true;
+    document.querySelector('#add').textContent = 'Update'
     editRow(sNo - 1);
-    updateIdx = sNo - 1;
     syncFormUIWithState();
 
   });
   delButton.addEventListener('click', () => {
     delRow(sNo - 1);
     renderTableData(arrExpense);
+    setBalance();
   })
   return new_row;
 }
 
 function addExpense(arrExpense) {
   arrExpense.push(formState);
+  setBalance();
 }
 
 function handleInputChange(e, form) {
@@ -260,6 +291,7 @@ function delRow(idx) {
   arrExpense.splice(idx, 1);
 }
 function editRow(idx) {
+  updateIdx = idx;
   formState = { ...arrExpense[idx] };
 }
 
@@ -271,4 +303,38 @@ function syncFormUIWithState() {
 
 function updateExpense(idx) {
   arrExpense[idx] = formState;
+}
+
+function setBalance() {
+  let balanceAmt = document.querySelector('#p_balance')
+  let expenseAmt = document.querySelector('#p_expense');
+  let incomeAmt = document.querySelector('#p_income')
+  let new_income = document.querySelector('#income');
+
+  incomeAmt.textContent = user.income;
+  expenseAmt.textContent = user.expenses;
+  balanceAmt.textContent = user.b`alance;
+  expenseAmt.textContent = expenseCalc(arrExpense);
+  new_income.placeholder = 'Enter new Income'
+  if (incomeAmt.textContent === '') incomeAmt.textContent = new_income.value
+  else incomeAmt.textContent = Number(incomeAmt.textContent) + Number(new_income.value);
+  balanceAmt.textContent = Number(incomeAmt.textContent) - Number(expenseAmt.textContent)
+  new_income.value = null;
+
+  storageSet(incomeAmt,expenseAmt,balanceAmt);
+}
+function expenseCalc(arrExpense) {
+  let total_expense = 0;
+  for (let i = 0; i < arrExpense.length; i++) {
+    total_expense += Number(arrExpense[i].amount);
+  }
+  return total_expense;
+}
+
+function storageSet(incomeAmt,expenseAmt,balanceAmt){
+  user.income = incomeAmt.textContent;
+  user.expenses = expenseAmt.textContent;
+  user.balance = balanceAmt.textContent;
+  user.expenseHistory = arrExpense;
+  localStorage.setItem('user',JSON.stringify(user));
 }
