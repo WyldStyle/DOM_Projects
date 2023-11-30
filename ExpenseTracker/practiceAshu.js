@@ -313,7 +313,7 @@ function setBalance() {
 
   incomeAmt.textContent = user.income;
   expenseAmt.textContent = user.expenses;
-  balanceAmt.textContent = user.b`alance;
+  balanceAmt.textContent = user.balance;
   expenseAmt.textContent = expenseCalc(arrExpense);
   new_income.placeholder = 'Enter new Income'
   if (incomeAmt.textContent === '') incomeAmt.textContent = new_income.value
