@@ -11,8 +11,10 @@
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="expense.css">
   <!-- <script src="expense.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
   <script src="practiceAshu.js"></script>
   <title>Track it All</title>
+
 </head>
 
 <body>
@@ -23,25 +25,25 @@
     <div class="row">
       <h3 id="h2-balance">Your Balance
         <div class="input-group">
-        <div class="input-group-text">Rs.</div>
-        <div id="p_balance" style="font-size: large;font-weight: 600; margin-top: 5px; margin-left: 2px;"></div>
+          <div class="input-group-text">Rs.</div>
+          <div id="p_balance" style="font-size: large;font-weight: 600; margin-top: 5px; margin-left: 2px;"></div>
         </div>
       </h3>
     </div>
     <div class="row">
       <div class="col">Income
-        
+
         <div class="input-group">
-        <div class="input-group-text">Rs.</div>
-        <div id="p_income" style="font-size: large;font-weight: 600; margin-top: 5px; margin-left: 2px;"></div>
+          <div class="input-group-text">Rs.</div>
+          <div id="p_income" style="font-size: large;font-weight: 600; margin-top: 5px; margin-left: 2px;"></div>
         </div>
         <input type="number" id="income" placeholder="Enter yr income">
         <button class="btn btn-primary" type="submit" id="btn-income" style="margin-top: 5px;">Add Income</button>
       </div>
       <div class="col">Expense
         <div class="input-group">
-        <div class="input-group-text">Rs.</div>
-        <div id="p_expense" style="font-size: large;font-weight: 600; margin-top: 5px; margin-left: 2px;"></div>
+          <div class="input-group-text">Rs.</div>
+          <div id="p_expense" style="font-size: large;font-weight: 600; margin-top: 5px; margin-left: 2px;"></div>
         </div>
       </div>
     </div>
@@ -105,7 +107,8 @@
       <form id="form-add-expense">
 
         <label for="category">Category</label>
-        <select name="" id="category" class="form-select" style="margin-bottom: 6px;" oninput="handleInputChange(event)" required>
+        <select name="" id="category" class="form-select" style="margin-bottom: 6px;" oninput="handleInputChange(event)"
+          required>
           <option value="home">Home</option>
           <option value="food">Food</option>
           <option value="clothing">Clothing</option>
@@ -114,7 +117,8 @@
         </select>
 
         <div class="form-floating">
-          <input type="text" id="item" class="form-control" placeholder="xoxo" oninput="handleInputChange(event)" required>
+          <input type="text" id="item" class="form-control" placeholder="xoxo" oninput="handleInputChange(event)"
+            required>
           <label for="item">Spend On Item</label>
           <div class="invalid-feedback">Invalid email</div>
           <div class="valid-feedback">Correct mail</div>

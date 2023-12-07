@@ -174,7 +174,6 @@ let formState = {
 console.log(user);
 // let arrExpense = [];
 let arrExpense = user.expenseHistory;
-console.log(arrExpense, 'hererere');
 let editMode = false, updateIdx = null;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -293,6 +292,9 @@ function delRow(idx) {
 function editRow(idx) {
   updateIdx = idx;
   formState = { ...arrExpense[idx] };
+  //this will create a new formState Object local to this scope
+  //will change the form values
+  // which in turn will change the input field value
 }
 
 function syncFormUIWithState() {

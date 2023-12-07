@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Yr Appointment</title>
+  <link rel="stylesheet" href="BS_css.css">
+  <link rel="stylesheet" href="booking3Css.css">
+  <script src="BS_JS.js"></script>
+  <script src="booking3_script.js"></script>
+
+</head>
+
+<body>
+  <div id="div1_outer">
+    <div id="div2_head">
+      <h1 class="heading1">Book Your Appointment ⏲
+    </div>
+        <hr style="color: white; display: block; width: 100%;">
+    <!-- div2 -->
+    <div id="div3_body">
+
+      <div id="div4_body_form">
+        <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#div_form_collapse"
+          aria-expanded="false" aria-controls="collapseExample">Find & Book Yr Slot</button>
+        <div class="collapse" id="div_form_collapse">
+          <form id="form1">
+            <label for="username">Name</label><br>
+            <input type="text" id="username" name="username" oninput="onInputFieldChange(event)"><br><br>
+            <label for="mobNo">Mobile Number</label><br>
+            <input type="text" id="mobNo" name="mobNo" oninput="onInputFieldChange(event)"><br><br>
+            <label for="profession">Profession</label><br>
+            <input type="text" id="profession" name="profession" oninput="onInputFieldChange(event)"><br><br>
+            <label for="purpose">Purpose</label><br>
+            <input type="text" id="purpose" name="purpose" oninput="onInputFieldChange(event)"><br><br>
+            <label for="slot">Choose a slot</label><br>
+            <input type="time" name="slot" id="slot" oninput="onInputFieldChange(event)">
+            <input type="date" id="date" value='' name="date" oninput="onInputFieldChange(event)"><br><br>
+            <button class="btn btn-success" type="submit">Book Appointment</button>
+          </form>
+        </div>
+      </div>
+      <!-- div4 -->
+      <div id="div5_body_table">
+        <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#div_table_collapse"
+          aria-expanded="false" aria-controls="collapseExample">Show/ Hide Appointments</button>
+        <br><br>
+        <div class="collapse" id = div_table_collapse>
+          <div class="table-responsive">
+          <table class="table table-success table-striped" id="table_appointments">
+            <thead>
+              <tr>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>Mobile No</th>
+                <th>Profession</th>
+                <th>Purpose</th>
+                <th>Time Slot</th>
+                <th>Date</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+      <!-- div5 -->
+    </div>
+    <!-- div3 -->
+  </div>
+  <!-- div1 -->
+</body>
+
+</html>

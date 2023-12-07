@@ -1,0 +1,52 @@
+#username:hover,#mobNo:hover,#profession:hover,#purpose:hover,
+#slot:hover,#date:hover,table:hover{
+  /* background-color: greenyellow; */
+box-shadow: 2px 2px 10px 10px greenyellow;
+
+}
+/* #book-modal{
+  background-color: rgb(0, 15, 0);
+} */
+#div1_outer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#div2_head{
+  color: white;
+  text-shadow: 2px 2px 2px rgb(163, 248, 106);
+  margin-bottom: 20px;
+}
+hr{
+  color: white;
+  box-shadow: 1px 1px 1px 1px greenyellow;
+  /* margin-bottom: 2px; */
+}
+#div3_body{
+  margin-top: 20px;
+  min-width: 300px;
+  flex: 1; /* from #div1_outer*/
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid rgb(255, 255, 255);
+}
+#div4_body_form{
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
+  color: white;
+  border: 1px solid greenyellow;
+}
+#form1{
+  padding-left: 4px;
+}
+#div5_body_table{
+  border: 1px solid greenyellow;
+  flex:1;
+}
+body{
+  background-image: url('https://mcdn.wallpapersafari.com/medium/79/27/w9EjHJ.jpg');
+  background-size: cover;
+}
