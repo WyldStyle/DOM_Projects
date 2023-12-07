@@ -109,7 +109,7 @@ function onInputFieldChange(e) {
 }
 
 function setInputFieldValue(key) {
-  console.log(key);
+  console.log(key, document.querySelector(`#${key}`).value);
   document.querySelector(`#${key}`).value = formState[key];
 }
 
