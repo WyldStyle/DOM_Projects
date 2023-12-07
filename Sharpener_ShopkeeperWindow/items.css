@@ -1,0 +1,12 @@
+.div1outer{
+  margin-left: 20px;
+}
+.divHeader{
+  text-align: center;
+}
+
+#divInput{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
