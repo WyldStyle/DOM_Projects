@@ -1,3 +1,4 @@
+const baseUrl = ' https://crudcrud.com/api/010d7424266b46c8bfdbd106f4f3eecf/candyShop'
 let formState = {
   'name': '',
   'descrip': '',
@@ -12,8 +13,7 @@ let updateId = null;
 
 
 document.addEventListener('DOMContentLoaded', async () => {
-  const divInput = document.querySelector('#divInput');
-  const button_addItem = divInput.querySelector('btn_addItem');
+  const button_addItem = document.querySelector('#btn_addItem');
 
   //ooe 1
   await getDataFromApi_and_RenderTable();
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   sync_inputUIWithState();
 
-  button_addItem.addEventListener('submit', async (e) => {
+  button_addItem.addEventListener('click', async (e) => {
     e.preventDefault();
     if (!editMode) {
       const response = await postData(formState);
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
       renderTableData(inventory);
     } else {
-      updateTable(updateId, updateIdx);
+      await updateTable(updateId, updateIdx);
       button_addItem.textContent = 'Update item'
       editMode = false;
       updateIdx = null;
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 //ooe1
 async function getDataFromApi_and_RenderTable() {
-  inventory = getDataFromApi();
+  inventory = await getDataFromApi();
   renderTableData(inventory);
 }
 
@@ -115,8 +115,9 @@ function objectToTableRow(sNo, single_item) {
   const sNoCell = document.createElement('td');
   sNoCell.textContent = sNo + 1;
   new_row.appendChild(sNoCell);
-  for (const key of single_item) {
-    if (key === 'id') continue;
+  // console.log('here', typeof single_item, single_item);
+  for (const key of Object.keys(single_item)) {
+    if (key === '_id') continue;
     let new_cell = document.createElement('td');
     new_cell.textContent = single_item[key];
     new_row.appendChild(new_cell);
@@ -134,9 +135,9 @@ function objectToTableRow(sNo, single_item) {
   new_row.appendChild(buy_button)
 
 
-  editButton.addEventListener('click',()=>editRow(single_item._id, sNo));
+  editButton.addEventListener('click', () => editRow(single_item._id, sNo));
   del_button.addEventListener('click', () => delRow(single_item._id, sNo));
-  buy_button.addEventListener('click', (e) => bought(single_item._id, sNo,e));
+  buy_button.addEventListener('click', (e) => {bought(single_item._id, sNo, e) });
 
   return new_row;
 }
@@ -152,26 +153,34 @@ function onInputFieldChange(e) {
 
 //ooe6
 function setInputFieldValue(key) {
+  // console.log('here key',key);
+  if (key === '_id') return;
   document.querySelector(`#${key}`).value = formState[key];
 }
 
 // ooe7
 function sync_inputUIWithState() {
-  for (const key of Object.entries(formState)) {
+  for (const key of Object.keys(formState)) {
     if (key === 'id') continue;
     setInputFieldValue(key);
   }
 }
 
-function bought(id,idx, e){
+function bought(id, idx, e) {
+  editMode = true;
+  updateId = id;
+  updateIdx = idx;
+  // console.log(editMode, updateId, updateIdx);
+  document.querySelector('#btn_addItem').textContent = 'Update';
 
-  const quantity_sold = Number(e.parentElement.children[5].firstChild.value);
-  let x = Number(formState['quantity']) - quantity_sold;
+  const originalQuantity = Number(inventory[idx].quantity)
+  const quantity_sold = Number(e.target.parentNode.children[5].value);
+  const new_quantity = originalQuantity - quantity_sold
   formState = {
-    ...formState,
-    ['quantity']: x
+    ...inventory[idx],
+    ['quantity']: new_quantity
   }
-  editRow(id,idx)
+  sync_inputUIWithState();
 }
 
 function editRow(id, idx) {
@@ -183,13 +192,13 @@ function editRow(id, idx) {
   formState = {
     ...inventory[idx]
   }
-  syncFormUIWithState();
+  sync_inputUIWithState();
 }
 async function updateTable(id, updateIdx) {
   // inventory[updateIdx] = formState;
   console.log('here', updateIdx, inventory);
   const updateStatus = await editRecordOnServer(id, formState)
-  if(updateStatus){
+  if (updateStatus) {
     inventory[updateIdx] = {
       ...formState,
       _id: id
@@ -207,11 +216,11 @@ async function editRecordOnServer(id, updatedInfo) {
       },
       body: JSON.stringify(updatedInfo)
     })
-    if(response.status === 200){
+    if (response.status === 200) {
       return true
     }
     else return false;
-  } catch(error) {
+  } catch (error) {
     console.log(error.message);
   }
   // const res = await response.json()
